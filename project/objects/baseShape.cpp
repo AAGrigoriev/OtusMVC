@@ -21,5 +21,3 @@ void BaseShape::paint(std::shared_ptr<IGraphic> graphic)
         Some logic to init 
     */
 }
-
-

@@ -2,6 +2,8 @@
 
 struct BaseShape : IShape
 {
+private:
+
 protected:
     int x;
     int y;
