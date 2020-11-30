@@ -67,7 +67,7 @@ public:
 
 private:
     /*!
-        @brief 
+        @brief  
     */
     std::list<std::unique_ptr<IShape>> shapes;
 
