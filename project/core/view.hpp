@@ -16,7 +16,11 @@ public:
 
     virtual void button_new();
 
-    virtual void button_add_shape(type_shape shape);
+    virtual void button_save();
+
+    virtual void button_add_dot();
+
+    virtual void button_add_circle();
 };
 
 class View : public IView
@@ -26,13 +30,17 @@ public:
 
     virtual ~View() = default;
 
-    virtual void button_open() override;
+    virtual void button_open()       override;
 
-    virtual void button_close() override;
+    virtual void button_close()      override;
 
-    virtual void button_new() override;
+    virtual void button_new()        override;
 
-    virtual void button_add_shape(type_shape shape) override;
+    virtual void button_save()       override;
+
+    virtual void button_add_dot()    override;
+
+    virtual void button_add_circle() override;
 
 private:
 

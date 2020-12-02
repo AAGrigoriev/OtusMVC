@@ -15,7 +15,6 @@ int BaseShape::getY()
 
 void BaseShape::paint(std::shared_ptr<IGraphic> graphic)
 {
-    graphic->setColor(color);
     std::cout << "Base Paint\n";
     /*
         Some logic to init 
