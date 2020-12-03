@@ -1,3 +1,5 @@
+#pragma once
+
 #include "baseShape.hpp"
 
 struct Circle : BaseShape

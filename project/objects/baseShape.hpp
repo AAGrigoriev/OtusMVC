@@ -1,3 +1,5 @@
+#pragma once
+
 #include "IShape.hpp"
 
 struct BaseShape : IShape

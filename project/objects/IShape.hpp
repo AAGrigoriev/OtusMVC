@@ -1,3 +1,5 @@
+#pragma once
+
 #include "graphic.hpp"
 #include <memory>
 
