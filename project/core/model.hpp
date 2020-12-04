@@ -6,6 +6,7 @@
 
 #include "IShape.hpp"
 #include "graphic.hpp"
+
 /*!
     @brief interface class vector editor model
 */

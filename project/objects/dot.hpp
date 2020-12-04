@@ -1,3 +1,4 @@
+#pragma once
 #include "baseShape.hpp"
 
 struct Dot : BaseShape

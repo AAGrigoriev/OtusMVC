@@ -16,7 +16,6 @@ void Model::open(std::string &FilePath)
 {
     shapes.clear();
 
-    /* Some logic to Open file  and load shapes from file */
     filePath = filePath;
     /* notify view */
 }
