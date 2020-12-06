@@ -4,7 +4,6 @@
 #include <list>
 #include <memory>
 
-#include "IShape.hpp"
 #include "objects/IShape.hpp"
 #include "observer/observer.hpp"
 
@@ -76,8 +75,8 @@ public:
         @brief Delete primitive from document
         @param[in] shape  
     */
-    virtual void deletePrimitive(std::unique_ptr<IShape> shape) override;
 
+    virtual void deletePrimitive(std::unique_ptr<IShape> shape) override;
     /*!
         @brief Draw all primitive from document
         @param[in] graphic  

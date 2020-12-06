@@ -5,10 +5,13 @@
 struct Circle : BaseShape
 {
 private:
-    int radius;
+    int radius = 0;
 
 public:
     Circle(int X, int Y, int Radius, RGB color) : BaseShape(X, Y, color), radius(Radius) {}
+
+    Circle() = default;
+    virtual ~Circle() = default;
 
     int getRadius();
 

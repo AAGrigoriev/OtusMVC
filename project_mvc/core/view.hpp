@@ -15,8 +15,6 @@ public:
 
     virtual void button_open()          = 0;
 
-    virtual void button_close()         = 0;
-
     virtual void button_new()           = 0;
 
     virtual void button_save()          = 0;
