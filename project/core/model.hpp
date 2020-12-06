@@ -5,7 +5,8 @@
 #include <memory>
 
 #include "IShape.hpp"
-#include "graphic.hpp"
+#include "objects/IShape.hpp"
+#include "observer/observer.hpp"
 
 /*!
     @brief interface class vector editor model
@@ -13,12 +14,8 @@
 class IModel
 {
 public:
+    IModel()          = default;
     virtual ~IModel() = default;
-
-    /*!
-        @brief Create new document
-    */
-    virtual void new_doc() = 0;
 
     /*!
         @brief Open document from file
@@ -50,17 +47,13 @@ public:
     virtual void draw(std::shared_ptr<IGraphic> graphic) = 0;
 };
 
-class Model : public IModel
+class Model : public IModel , public IObservable
 {
 public:
-    Model() = default;
 
-    ~Model() = default;
+    Model()          = default;
 
-    /*!
-        @brief Create new document
-    */
-    virtual void new_doc() override;
+    virtual ~Model() = default;
 
     /*!
         @brief Save document
@@ -93,12 +86,12 @@ public:
 
 private:
     /*!
-        @brief  
+        @brief  list objects
     */
-    std::list<std::unique_ptr<IShape>> shapes;
+    std::list<std::unique_ptr<IShape>> list_shapes;
 
     /*!
-        @brief 
+        @brief Way to current file
     */
     std::string filePath;
 };

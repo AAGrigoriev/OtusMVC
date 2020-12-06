@@ -1,8 +1,10 @@
 #pragma once
 
 #include <memory>
-#include "tools.hpp"
+#include "tools/tools.hpp"
 #include "model.hpp"
+#include "tools/fabrick.hpp"
+
 class IController
 {
 public:
@@ -11,9 +13,9 @@ public:
 
     virtual void open_document() = 0;
 
-    virtual void add_primitive(type_shape shape) = 0;
+    virtual void add_primitive(std::unique_ptr<IFabrick> f) = 0;
 
-    virtual void delete_primitive(type_shape shape) = 0;
+    virtual void delete_primitive() = 0;
 
     virtual void save_document() = 0;
 };
@@ -27,9 +29,9 @@ public:
 
     virtual void open_document() override;
 
-    virtual void add_primitive(type_shape shape) override;
+    virtual void add_primitive(std::unique_ptr<IFabrick> f) override;
 
-    virtual void delete_primitive(type_shape shape) override;
+    virtual void delete_primitive() override;
 
     virtual void save_document() override;
 

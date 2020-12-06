@@ -51,7 +51,7 @@ public:
 
     virtual void button_delete_circle() override;
 
-    virtual void Update()                override;
+    virtual void update()               noexcept override;
 
 private:
 

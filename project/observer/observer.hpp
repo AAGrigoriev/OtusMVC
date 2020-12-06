@@ -11,9 +11,9 @@ class IObserver
 {
 public:
     /**
-    * @brief Update derived classes
+    * @brief update derived classes
     */
-    virtual void Update() = 0;
+    virtual void update() noexcept = 0;
 
     virtual ~IObserver() = default;
 };
@@ -25,24 +25,33 @@ public:
 class IObservable
 {
 public:
-    virtual void subscribe(std::shared_ptr<IObserver> obs)
+
+    IObservable() = default;
+    virtual ~IObservable() = default;
+
+    void subscribe(std::shared_ptr<IObserver> obs) noexcept
     {
         m_Observers.push_back(obs);
     }
 
-    virtual void unsubscribe(std::shared_ptr<IObserver> obs)
+    void unsubscribe(std::shared_ptr<IObserver> obs) noexcept
     {
-        m_Observers.remove(obs);
+        m_Observers.remove_if([obs](std::weak_ptr<IObserver> &w_ptr) {
+            return w_ptr.expired() || w_ptr.lock() == obs;
+        });
     }
 
-    virtual void notify()
+    void notify() noexcept
     {
-        for(auto& ptr : m_Observers)
+        for (auto &w_ptr : m_Observers)
         {
-            ptr->Update();
+            if (!w_ptr.expired())
+            {
+                w_ptr.lock()->update();
+            }
         }
     }
 
 private:
-    std::list<std::shared_ptr<IObserver>> m_Observers;
+    std::list<std::weak_ptr<IObserver>> m_Observers;
 };

@@ -27,25 +27,25 @@ void View::button_save()
 
 void View::button_add_dot()
 {
-    contr->add_primitive(type_shape::DOT);
+    contr->add_primitive(std::make_unique<DotFabrick>());
 }
 
 void View::button_add_circle()
 {
-    contr->add_primitive(type_shape::CIRCLE);
+    contr->add_primitive(std::make_unique<CircleFabrick>());
 }
 
 void View::button_delete_circle()
 {
-    contr->delete_primitive(type_shape::CIRCLE);
+    contr->delete_primitive();
 }
 
 void View::button_delete_dot()
 {
-    contr->delete_primitive(type_shape::DOT);
+    contr->delete_primitive();
 }
 
-void View::Update()
+void View::update()
 {
     if(auto observe = model.lock())
     {
