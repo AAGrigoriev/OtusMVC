@@ -1,8 +1,9 @@
-#include  "view.hpp"
-#include  "tools/tools.hpp"
-#include  "assert.h"
+#include "view.hpp"
+#include "tools/tools.hpp"
+#include "assert.h"
 
-View::View(std::shared_ptr<IController> contr, std::shared_ptr<IModel> model): contr(contr),model(model) {
+View::View(std::shared_ptr<Controller> contr, std::shared_ptr<Model> model) : contr(contr), model(model)
+{
 
     assert(model);
     assert(contr);
@@ -45,10 +46,7 @@ void View::button_delete_dot()
     contr->delete_primitive();
 }
 
-void View::update()
+void View::update() noexcept
 {
-    if(auto observe = model.lock())
-    {
-        observe->draw(simpleGraphic);
-    }
+    model->draw(simpleGraphic);
 }

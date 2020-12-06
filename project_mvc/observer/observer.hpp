@@ -22,7 +22,7 @@ public:
  * \interface IObservable
  * @brief For monitoring
  */
-class IObservable
+class  IObservable
 {
 public:
 

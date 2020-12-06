@@ -13,8 +13,8 @@
 class IModel
 {
 public:
-    IModel()          = default;
-    virtual ~IModel() = default;
+    IModel()            = default;
+    virtual ~IModel()   = default;
 
     /*!
         @brief Open document from file
@@ -46,13 +46,12 @@ public:
     virtual void draw(std::shared_ptr<IGraphic> graphic) = 0;
 };
 
-class Model : public IModel , public IObservable
+class Model : public IModel , public IObservable 
 {
 public:
 
-    Model()          = default;
-
-    virtual ~Model() = default;
+    Model()             = default;
+    virtual ~Model()    = default;
 
     /*!
         @brief Save document
@@ -69,7 +68,7 @@ public:
         @brief Add primitive to document
         @param[in] shape  
     */
-    virtual void addPrimitive(std::unique_ptr<IShape> shape)    override;
+    virtual void addPrimitive(std::unique_ptr<IShape> shape) override;
 
     /*!
         @brief Delete primitive from document
@@ -81,7 +80,7 @@ public:
         @brief Draw all primitive from document
         @param[in] graphic  
     */
-    virtual void draw(std::shared_ptr<IGraphic> graphic)        override;
+    virtual void draw(std::shared_ptr<IGraphic> graphic) override;
 
 private:
     /*!

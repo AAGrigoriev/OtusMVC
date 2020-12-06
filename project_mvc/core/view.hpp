@@ -31,7 +31,7 @@ public:
 class View : public IView , public IObserver
 {
 public:
-    View(std::shared_ptr<IController> contr, std::shared_ptr<IModel> model);
+    View(std::shared_ptr<Controller> contr, std::shared_ptr<Model> model);
 
     virtual ~View() = default;
 

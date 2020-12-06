@@ -1,7 +1,6 @@
 #include "model.hpp"
 #include "algorithm"
 
-
 void Model::save_document()
 {
     /* save to file (Serialize)*/
@@ -18,7 +17,7 @@ void Model::open(std::string &FilePath)
 
 void Model::addPrimitive(std::unique_ptr<IShape> shape)
 {
-    list_shapes.push_back(shape);
+    list_shapes.push_back(std::move(shape));
     notify();
 }
 

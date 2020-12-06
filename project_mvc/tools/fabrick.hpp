@@ -8,18 +8,19 @@
 class IFabrick
 {
 public:
-    IFabrick()          = default;
+    IFabrick() = default;
     virtual ~IFabrick() = default;
 
-    virtual std::unique_ptr<IShape> create()  noexcept = 0;
+    virtual std::unique_ptr<IShape> create() noexcept = 0;
 };
 
 class DotFabrick : public IFabrick
 {
-    DotFabrick()          = default;
+public:
+    DotFabrick() = default;
     virtual ~DotFabrick() = default;
 
-    virtual std::unique_ptr<IShape> create()  noexcept override
+    virtual std::unique_ptr<IShape> create() noexcept override
     {
         return std::make_unique<Dot>();
     }
@@ -27,7 +28,8 @@ class DotFabrick : public IFabrick
 
 class CircleFabrick : public IFabrick
 {
-    CircleFabrick()          = default;
+public:
+    CircleFabrick() = default;
     virtual ~CircleFabrick() = default;
 
     virtual std::unique_ptr<IShape> create() noexcept override
