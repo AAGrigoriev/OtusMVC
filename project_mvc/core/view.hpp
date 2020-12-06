@@ -58,5 +58,5 @@ private:
     std::shared_ptr<IGraphic>    simpleGraphic;
 
     std::shared_ptr<IController> contr;
-    std::weak_ptr<IModel>        model;
+    std::shared_ptr<IModel>      model;
 };
